@@ -1,21 +1,25 @@
 <?php
 
 set_include_path(get_include_path() . PATH_SEPARATOR . $_SERVER['DOCUMENT_ROOT']);
-
 require_once 'app.php';
 
-$input = file_get_contents('php://input');
+use telegrambot\Bot\TelegramBotClass;
 
-$update = json_decode($input);
+$newBot = new TelegramBotClass($_ENV['BOT_TOKEN']);
 
-$message = $update->message;
+$botUpdates = $newBot->getUpdates();
 
-$chat_id = $message->chat->id;
+dump($botUpdates);
 
-$text = $message->text;
+$newBot->setChatId($botUpdates[0]->message->chat->id);
+$newBot->setChatType($botUpdates[0]->message->chat->type);
+$newBot->setChatUsername($botUpdates[0]->message->chat->username);
+$newBot->setChatFirstName($botUpdates[0]->message->chat->first_name);
 
-$token = $_ENV['BOT_TOKEN'];
+$newBot->setWebhook();
 
-file_get_contents("https://api.telegram.org/bot$token/sendMessage?chat_id=$chat_id&text=$text");
+$newBot->checkMessaje($botUpdates[0]->message->text);
+
+$newBot->deleteWebhook();
 
 ?>

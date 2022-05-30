@@ -6,7 +6,7 @@ require_once 'app.php';
 
 $input = file_get_contents('php://input');
 
-$update = json_decode($input, true);
+$update = json_decode($input);
 
 $message = $update->message;
 

@@ -14,6 +14,8 @@ $chat_id = $message->chat->id;
 
 $text = $message->text;
 
+$token = $_ENV['BOT_TOKEN'];
+
 file_get_contents("https://api.telegram.org/bot$token/sendMessage?chat_id=$chat_id&text=$text");
 
 ?>

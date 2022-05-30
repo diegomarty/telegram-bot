@@ -1,0 +1,12 @@
+{
+    "name": "diegomarty/telegrambot",
+    "description": "telegram bot from DiegoMarty",
+    "license": "proprietary",
+    "require": {
+        "php": ">=8.0.13",
+        "vlucas/phpdotenv": "^5.4"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.0"
+    }
+}

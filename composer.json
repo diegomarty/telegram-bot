@@ -2,6 +2,11 @@
     "name": "diegomarty/telegrambot",
     "description": "telegram bot from DiegoMarty",
     "license": "proprietary",
+    "autoload": {
+        "classmap": [
+          "class/bot"
+        ]
+      },
     "require": {
         "php": ">=8.0.13",
         "vlucas/phpdotenv": "^5.4"

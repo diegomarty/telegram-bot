@@ -1,0 +1,16 @@
+#Documentos
+tests.php
+
+
+##### VisualStudioCode
+.vscode/*
+*.code-workspace
+
+##### Composer
+composer.phar
+/vendor/
+
+# ARCHIVO DE CONFIGURACIÓN DEL ENTORNO
+.env
+test.php
+test2.php

@@ -1,0 +1,7 @@
+RedirectMatch 404 /\.git
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} !^.
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+DirectoryIndex index.php index.html

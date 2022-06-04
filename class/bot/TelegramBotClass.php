@@ -209,10 +209,13 @@ class TelegramBotClass
 
         curl_close($ch);
 
+        $test = file_get_contents('php://input');
+        var_dump($test);
         $result = json_decode($result, true);
 
         if (isset($result['ok']) && $result['ok'] == true) {
             echo 'Webhook creado correctamente';
+            var_dump($result);
             return true;
         } else {
             echo 'No se ha podido crear el webhook';
@@ -238,7 +241,6 @@ class TelegramBotClass
 
         if (isset($result['ok']) && $result['ok'] == true) {
             echo 'Webhook eliminado correctamente';
-            dump($result);
         } else {
             throw new Exception('[EXCEPTION] ' . $this::class . '::deleteWebhook() - No ha sido posible eliminar el webhook ' . $this::class . '. [ERROR]: ' . $result);
         }
@@ -261,7 +263,7 @@ class TelegramBotClass
 
         if (isset($result['ok']) && $result['ok'] == true) {
             echo 'Webhook creado correctamente';
-            dump($result);
+            var_dump($result);
         } else {
             throw new Exception('[EXCEPTION] ' . $this::class . '::setWebhook() - No ha sido posible obtener la informacion del webhook ' . $this::class . '. [ERROR]: ' . $result);
         }
